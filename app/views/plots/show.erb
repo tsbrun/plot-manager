@@ -1,0 +1,13 @@
+<h1> <%= @plot.title %> </h1>
+
+<h2>Characters</h2>
+
+<ul>
+    <% @plot.characters.each do |character|%>
+    <a href=""><li> <%= character.name %> </li></a>
+    <% end %>
+</ul>
+
+<h2>Summary</h2>
+
+<p> <%= @plot.summary %> </p>

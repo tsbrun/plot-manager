@@ -1,0 +1,12 @@
+<h1>Edit Your Plot</h1>
+
+<form method="POST" action="/plots/<%= @plot.id %>">
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+<label for="title">Title:</label>
+<input type="text" name="title"> <%= @plot.title %> </input><br><br>
+
+<label for="summary">Summary:</label>
+<textarea name="summary" value="<%= @plot.summary %>"></textarea>
+
+<input type="submit" value="Edit">
+</form>

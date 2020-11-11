@@ -10,8 +10,27 @@ class PlotsController < ApplicationController
     end
 
     post '/plots' do
-        @plot = Plot.new(params)
+        @plot = Plot.create(params)
         current_user(session).plots << @plot
+        redirect '/plots'
+    end
+
+    get '/plots/:id' do
+        # plots = current_user(session).plots 
+        # @plot = plots.find(params[:id].to_i)
+        @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id)
+        erb :"plots/show"
+    end
+
+    get '/plots/:id/edit' do
+        @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id)
+        erb :"plots/edit"
+    end
+
+    patch '/plots/:id' do
+        binding.pry
+        @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id)
+        @plot.update(title: params["title"], summary: params["summary"])
         redirect '/plots'
     end
 end
