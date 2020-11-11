@@ -18,4 +18,18 @@ class UsersController < ApplicationController
     get '/users/:id' do
         erb :"users/show"
     end
+
+    get '/signup' do
+        erb :"users/signup"
+    end
+
+    post '/signup' do
+        @user = User.create(name: params["name"], email: params["email"], password: params["password"])
+        if @user && @user.authenticate(params["password"])
+            session[:user_id] = @user.id 
+            redirect "/users/#{@user.id}"
+        else
+            redirect '/login'
+        end
+    end
 end
