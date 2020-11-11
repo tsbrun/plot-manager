@@ -1,6 +1,9 @@
 class PlotsController < ApplicationController
 
     get '/plots' do
-        "Here are all the plots."
+        # next time around, login and check the session[:user_id]
+        # binding.pry
+        @plots = current_user(session).plots
+        erb :"plots/index"
     end
 end
