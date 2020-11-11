@@ -10,4 +10,9 @@
 
 <h2>Summary</h2>
 
-<p> <%= @plot.summary %> </p>
+<p> <%= @plot.summary %> </p><br><br>
+
+<form method="POST" action="/plots/<%= @plot.id %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>
