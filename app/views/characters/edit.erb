@@ -1,6 +1,7 @@
 <h1>Edit <%= @character.name %></h1>
 
-<form method="POST" action="/plots/<%= @character.plot.id %>/characters">
+<form method="POST" action="/characters/<%= @character.id %>">
+<input id="hidden" type="hidden" name="_method" value="PATCH">
 <label for="name">Name: </label>
 <input type="text" name="name" value="<%= @character.name %>"><br><br>
 

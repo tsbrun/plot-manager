@@ -8,11 +8,11 @@
     <% end %>
 </ul>
 
-<br><br><a href="/plots/<%= @plot.id %>/characters/new">Add a New Character</a>
+<br><br><a href="/plots/<%= @plot.id %>/characters/new">Add a New Character</a><br><br>
 
 <h2>Summary</h2>
 
-<p> <%= @plot.summary %> </p><br><br>
+<p> <%= @plot.summary %> </p>
 
 <form method="POST" action="/plots/<%= @plot.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">

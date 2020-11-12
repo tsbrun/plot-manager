@@ -29,7 +29,7 @@ class CharactersController < ApplicationController
 
     patch '/characters/:id' do
         @character = Character.find(params[:id])
-        @character.update(params)
+        @character.update(name: params["name"], role: params["role"], description: params["description"])
         redirect "/characters/#{@character.id}"
     end
 
