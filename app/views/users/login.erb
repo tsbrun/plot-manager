@@ -1,5 +1,9 @@
 <h1>Welcome to Plot Manager</h1>
 
+<% if flash[:login_failed] %>
+    <%= flash[:login_failed] %>
+<% end %>
+
 <h2>Please Login Below</h2>
 
 <form method="POST" action="/login">

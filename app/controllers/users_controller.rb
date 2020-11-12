@@ -11,6 +11,9 @@ class UsersController < ApplicationController
             flash[:login] = "You have successfully logged in as #{current_user(session).name}."
             redirect "/users/#{@user.id}"
         else
+            if !params.empty?
+                flash[:login_failed] = "Your login was unsuccessful."
+            end
             redirect '/login'
         end
     end
