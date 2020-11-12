@@ -1,12 +1,5 @@
 class CharactersController < ApplicationController
 
-    # get '/plots/:id/characters' do
-    #     user = current_user(session)
-    #     @plot = user.plots.find(params[:id].to_i)
-    #     @characters = @plot.characters
-    #     erb :"characters/index"
-    # end
-
     # create
     get '/plots/:id/characters/new' do
         @plot = Plot.find(params["id"].to_i)
@@ -30,11 +23,14 @@ class CharactersController < ApplicationController
 
     # update
     get '/characters/:id/edit' do
+        @character = Character.find(params[:id].to_i)
         erb :"characters/edit"
     end 
 
     patch '/characters/:id' do
-        
+        @character = Character.find(params[:id])
+        @character.update(params)
+        redirect "/characters/#{@character.id}"
     end
 
     # delete
@@ -44,17 +40,4 @@ class CharactersController < ApplicationController
         @character.delete
         redirect "/plots/#{@plot_id}"
     end
-
-    # get '/plots/:id/characters/new' do
-    #     binding.pry
-    #     erb :"characters/new"
-    # end
-
-    # post '/plots/:id/characters' do
-    #     binding.pry
-    #     character = Character.create(name: params["name"], role: params["role"], description: params["description"])
-    #     plot = Plot.find(params[:id])
-    #     plot.characters << character
-    #     redirect '/plots/:id/characters'
-    # end
 end
