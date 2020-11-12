@@ -1,6 +1,6 @@
 class PlotsController < ApplicationController
 
-    get '/plots' do
+    get '/users/:id/plots' do
         @plots = current_user(session).plots
         erb :"plots/index"
     end
