@@ -5,9 +5,11 @@
 <h3>Description</h3>
 <p> <%= @character.description %> </p>
 
+<a href="/characters/:id/edit">Edit</a><br><br>
+
 <form method="POST" action="/characters/<%= @character.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete">
-</form>
+</form><br>
 
 <a href="/plots/ <%= @character.plot.id %>"> <%= @character.plot.title %> </a>

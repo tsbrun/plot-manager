@@ -7,6 +7,19 @@ class CharactersController < ApplicationController
     #     erb :"characters/index"
     # end
 
+    # create
+    get '/plots/:id/characters/new' do
+        @plot = Plot.find(params["id"].to_i)
+        erb :"characters/new"
+    end
+
+    post '/plots/:id/characters' do
+        @plot = Plot.find(params[:id].to_i)
+        @character = Character.create(name: params["name"], role: params["role"], description: params["description"])
+        @plot.characters << @character
+        redirect "/characters/#{@character.id}"
+    end
+
     # READ all the characters of a specific plot by going to that plot's show view 
 
     # show
@@ -15,9 +28,14 @@ class CharactersController < ApplicationController
         erb :"characters/show"
     end
 
-    # create
+    # update
+    get '/characters/:id/edit' do
+        erb :"characters/edit"
+    end 
 
-    # update 
+    patch '/characters/:id' do
+        
+    end
 
     # delete
     delete '/characters/:id' do
