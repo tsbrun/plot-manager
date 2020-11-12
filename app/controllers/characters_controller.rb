@@ -17,6 +17,16 @@ class CharactersController < ApplicationController
 
     # create
 
+    # update 
+
+    # delete
+    delete '/characters/:id' do
+        @character = Character.find(params[:id])
+        @plot_id = @character.plot.id
+        @character.delete
+        redirect "/plots/#{@plot_id}"
+    end
+
     # get '/plots/:id/characters/new' do
     #     binding.pry
     #     erb :"characters/new"
