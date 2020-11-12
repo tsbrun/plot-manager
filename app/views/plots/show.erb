@@ -4,7 +4,7 @@
 
 <ul>
     <% @plot.characters.each do |character|%>
-    <a href=""><li> <%= character.name %> </li></a>
+    <a href="/characters/<%= character.id %>"><li> <%= character.name %> </li></a>
     <% end %>
 </ul>
 
