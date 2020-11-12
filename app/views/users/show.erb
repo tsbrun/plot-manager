@@ -1,7 +1,13 @@
 <h1>Hello, <%= current_user(session).name %> </h1>
 
-<!-- View your plots <a href="plots/index">here</a>. -->
+<br>
 
-<!-- View your characters <a href="">here</a>. -->
+<% if current_user(session).plots.empty? %>
+    <a href="/plots/new">Make a New Plot</a>
+    <% else %>
+    <a href="/plots">Your Plots</a>
+<% end %>
+
+<br><br>
 
 <a href="/logout">Logout</a>

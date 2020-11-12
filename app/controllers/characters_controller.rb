@@ -15,7 +15,7 @@ class CharactersController < ApplicationController
 
     # READ all the characters of a specific plot by going to that plot's show view 
 
-    # show
+    # show route
     get '/characters/:id' do
         @character = Character.find(params[:id])
         erb :"characters/show"

@@ -2,6 +2,15 @@
 
 <% @plots.each do |plot|%>
     <a href="/plots/<%= plot.id %>"><%= plot.title %></a>
+    <br>
 <% end %>
+
+<br>
+
+<a href="/plots/new">Create a New Plot</a>
+
+<br><br>
+
+<a href="/logout">Logout</a>
 
 <!-- This is not showing up as an ordered list, but it works for now, so I'll move on.-->
