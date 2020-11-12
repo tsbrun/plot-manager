@@ -11,4 +11,5 @@ ActiveRecord::Base.establish_connection(
 require './app/controllers/application_controller'
 require './app/controllers/users_controller.rb'
 require './app/controllers/plots_controller.rb'
+require './app/controllers/characters_controller.rb'
 require_all 'app'
