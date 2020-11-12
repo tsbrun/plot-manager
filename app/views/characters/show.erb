@@ -1,1 +1,8 @@
 <h1> <%= @character.name %> </h1>
+
+<h2> Role: <%= @character.role %> </h2>
+
+<h3>Description</h3>
+<p> <%= @character.description %> </p>
+
+<a href="/plots/ <%= @character.plot.id %>"> <%= @character.plot.title %> </a>

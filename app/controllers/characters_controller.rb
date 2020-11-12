@@ -1,16 +1,21 @@
 class CharactersController < ApplicationController
 
-    get '/plots/:id/characters' do
-        user = current_user(session)
-        @plot = user.plots.find(params[:id].to_i)
-        @characters = @plot.characters
-        erb :"characters/index"
-    end
+    # get '/plots/:id/characters' do
+    #     user = current_user(session)
+    #     @plot = user.plots.find(params[:id].to_i)
+    #     @characters = @plot.characters
+    #     erb :"characters/index"
+    # end
 
+    # READ all the characters of a specific plot by going to that plot's show view 
+
+    # show
     get '/characters/:id' do
         @character = Character.find(params[:id])
         erb :"characters/show"
     end
+
+    # create
 
     # get '/plots/:id/characters/new' do
     #     binding.pry
