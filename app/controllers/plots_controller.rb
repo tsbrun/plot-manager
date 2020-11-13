@@ -6,7 +6,12 @@ class PlotsController < ApplicationController
     end
 
     get '/plots/new' do
-        erb :"plots/new"
+        if logged_in?(session)
+            erb :"plots/new"
+        else
+            flash[:not_logged_in] = "Please log in."
+            redirect '/login'
+        end
     end
 
     post '/plots' do

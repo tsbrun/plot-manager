@@ -1,7 +1,3 @@
-Validations
-1. Validate user input for User, Plot, and Character
-2. Create validation failure messages
-
 New Branch - Authorization
  1. Authorization to edit, delete, create new plot or character
 
