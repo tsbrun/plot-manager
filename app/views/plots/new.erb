@@ -1,5 +1,9 @@
 <h1>Create a New Plot</h1>
 
+<% if flash[:failure] %>
+    <%= flash[:failure] %><br><br>
+<% end %>
+
 <form method="POST" action="/plots">
 <label for="title">Title:</label>
 <input type="text" name="title"><br><br>

@@ -11,8 +11,13 @@ class PlotsController < ApplicationController
 
     post '/plots' do
         @plot = Plot.create(params)
-        current_user(session).plots << @plot
-        redirect '/plots'
+        if @plot.valid?
+            current_user(session).plots << @plot
+            redirect '/plots'
+        else
+            flash[:failure] = "Please try again."
+            redirect '/plots/new'
+        end
     end
 
     get '/plots/:id' do
