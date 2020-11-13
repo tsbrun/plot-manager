@@ -34,7 +34,11 @@ class PlotsController < ApplicationController
         binding.pry
         @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id)
         @plot.update(title: params["title"], summary: params["summary"])
-        redirect '/plots'
+        if @plot.valid?
+            redirect '/plots'
+        else
+            redirect "/plots/#{@plot.id}/edit"
+        end
     end
 
     delete '/plots/:id' do

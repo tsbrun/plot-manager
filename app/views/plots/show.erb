@@ -14,6 +14,8 @@
 
 <p> <%= @plot.summary %> </p>
 
+<a href="/plots/<%= @plot.id %>/edit">Edit</a><br><br>
+
 <form method="POST" action="/plots/<%= @plot.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete">
