@@ -7,10 +7,16 @@ class CharactersController < ApplicationController
     end
 
     post '/plots/:id/characters' do
+        binding.pry
         @plot = Plot.find(params[:id].to_i)
         @character = Character.create(name: params["name"], role: params["role"], description: params["description"])
-        @plot.characters << @character
-        redirect "/characters/#{@character.id}"
+        if @character.valid?
+            @plot.characters << @character
+            redirect "/characters/#{@character.id}"
+        else
+            flash[:failure] = "Please try again."
+            redirect "/plots/#{@plot.id}/characters/new"
+        end
     end
 
     # READ all the characters of a specific plot by going to that plot's show view 
