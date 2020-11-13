@@ -25,14 +25,15 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
+        binding.pry
         @user = User.create(name: params["name"], email: params["email"], password: params["password"])
         if @user.valid? && @user.authenticate(params["password"])
             session[:user_id] = @user.id 
             flash[:login] = "You have successfully logged in as #{current_user(session).name}."
             redirect "/users/#{@user.id}"
         else
-            flash[:signup_failed] = "Your signup was unsuccessful."
-            redirect '/login'
+            flash[:signup_failed] = "Your signup was unsuccessful. Please enter all fields and use a unique email."
+            redirect '/signup'
         end
     end
 
