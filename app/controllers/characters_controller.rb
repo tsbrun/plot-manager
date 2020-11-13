@@ -8,9 +8,9 @@ class CharactersController < ApplicationController
 
     post '/characters' do
         @plot = Plot.find(session[:plot_id])
-        @character = Character.create(name: params["name"], role: params["role"], description: params["description"])
+        @character = Character.create(params[:user])
         if @character.valid?
-            @plot.characters << @character
+            @plot.characters << @character # add to parent so relationship persists both ways
             redirect "/characters/#{@character.id}"
         else
             flash[:failure] = "Please try again."
@@ -34,7 +34,8 @@ class CharactersController < ApplicationController
 
     patch '/characters/:id' do
         @character = Character.find(params[:id])
-        @character.update(name: params["name"], role: params["role"], description: params["description"])
+        #@character.update(name: params["name"], role: params["role"], description: params["description"])
+        @character.update(params[:user])
         if @character.valid?
             redirect "/characters/#{@character.id}"
         else
