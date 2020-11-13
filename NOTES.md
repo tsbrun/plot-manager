@@ -1,6 +1,3 @@
-New Branch - Authorization
- 1. Authorization to edit, delete, create new plot or character
-
 New Branch - Refactor for DRY-ness
  1. Likely will have to refactor forms so that #create(params) works and you don't have to assign @user or @post in controller
 
