@@ -6,6 +6,7 @@ class PlotsController < ApplicationController
     end
 
     get '/plots/new' do
+        # add this for characters, too
         if logged_in?(session)
             erb :"plots/new"
         else
