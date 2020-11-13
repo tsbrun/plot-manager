@@ -1,3 +1,5 @@
+<div class="container">
+<div class="content">
 <h1>Edit <%= @character.name %></h1>
 
 <% if flash[:failure] %>
@@ -15,5 +17,7 @@
 <label for="description">Description: </label>
 <textarea name="character[description]"><%= @character.description %></textarea><br><br>
 
-<input type="submit" value="Edit">
+<input type="submit" value="Edit" class="button is-success">
 </form>
+</div>
+</div>

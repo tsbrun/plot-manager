@@ -1,3 +1,5 @@
+<div class="container">
+<div class="content">
 <h1> <%= @character.name %> </h1>
 
 <h2> Role: <%= @character.role %> </h2>
@@ -5,11 +7,13 @@
 <h3>Description</h3>
 <p> <%= @character.description %> </p>
 
-<a href="/characters/<%= @character.id %>/edit">Edit</a><br><br>
+<a href="/characters/<%= @character.id %>/edit" class="button">Edit</a><br><br>
 
 <form method="POST" action="/characters/<%= @character.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete">
+  <input type="submit" value="Delete" class="button is-danger">
 </form><br>
 
 <a href="/plots/ <%= @character.plot.id %>"> Back to Plot - <%= @character.plot.title %> </a>
+</div>
+</div>
