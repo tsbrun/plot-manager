@@ -1,5 +1,9 @@
 <h1>Edit <%= @character.name %></h1>
 
+<% if flash[:failure] %>
+    <%= flash[:failure] %><br><br>
+<% end %>
+
 <form method="POST" action="/characters/<%= @character.id %>">
 <input id="hidden" type="hidden" name="_method" value="PATCH">
 <label for="name">Name: </label>
