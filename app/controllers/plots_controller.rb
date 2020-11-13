@@ -26,7 +26,7 @@ class PlotsController < ApplicationController
     end
 
     get '/plots/:id' do
-        @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id)
+        @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id
         erb :"plots/show"
     end
 
