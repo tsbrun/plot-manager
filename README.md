@@ -14,4 +14,4 @@ Simple CRUD app to manage plots and characters.
 
 <h2>License</h2>
 
-View the license <a href="plot-manager/LICENSE.md">here</a>.
+View the license <a href="https://github.com/tsbrun/plot-manager/blob/main/LICENSE">here</a>.
