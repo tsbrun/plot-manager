@@ -31,6 +31,7 @@ class UsersController < ApplicationController
             flash[:login] = "You have successfully logged in as #{current_user(session).name}."
             redirect "/users/#{@user.id}"
         else
+            flash[:signup_failed] = "Your signup was unsuccessful."
             redirect '/login'
         end
     end
