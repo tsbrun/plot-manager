@@ -4,6 +4,10 @@
 
 <h1>Welcome to Plot Manager</h1>
 
+<% if flash[:signup_failed] %>
+    <%= flash[:signup_failed] %>
+<% end %>
+
 <h2>Sign Up Below</h2>
 
 <br>
