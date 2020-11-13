@@ -1,11 +1,15 @@
+<div class="container">
+
+<div class="content">
+
 <h1>Welcome to Plot Manager</h1>
 
 <% if flash[:signup_failed] %>
-    <%= flash[:signup_failed] %><br>
+    <%= flash[:signup_failed] %>
 <% elsif flash[:login_failed] %>
-    <%= flash[:login_failed] %><br>
+    <%= flash[:login_failed] %>
 <% elsif flash[:not_logged_in] %>
-    <%= flash[:not_logged_in] %><br>
+    <%= flash[:not_logged_in] %>
 <% end %>
 
 <h2>Please Login Below</h2>
@@ -20,9 +24,13 @@
 <label for="password">Password:</label>
 <input type="text" name="password"><br><br>
 
-<input type="submit" value="Login">
+<input type="submit" value="Login" class="button is-link">
 </form>
 
 <br> 
 
-<a href="/signup">Sign Up Here</a>
+<a href="/signup" class="is-link">Sign Up Here</a>
+
+</div>
+
+</div>

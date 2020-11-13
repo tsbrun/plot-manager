@@ -1,4 +1,10 @@
-<%= flash[:login] %>
+<div class="container">
+
+<div class="content">
+
+<% if flash[:login] %>
+    <%= flash[:login] %><br>
+<% end %>
 
 <h1>Hello, <%= current_user(session).name %> </h1>
 
@@ -7,9 +13,13 @@
 <% if current_user(session).plots.empty? %>
     <a href="/plots/new">Make a New Plot</a>
     <% else %>
-    <a href="/plots">Your Plots</a>
+    <a href="/plots" class="button is-info">Your Plots</a>
 <% end %>
 
 <br><br>
 
 <a href="/logout">Logout</a>
+
+</div>
+
+</div>
