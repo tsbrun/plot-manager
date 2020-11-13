@@ -1,20 +1,20 @@
 class CharactersController < ApplicationController
 
     # create
-    get '/plots/:id/characters/new' do
-        @plot = Plot.find(params["id"].to_i)
+    get '/characters/new' do
+        @plot = Plot.find(session[:plot_id])
         erb :"characters/new"
     end
 
-    post '/plots/:id/characters' do
-        @plot = Plot.find(params[:id].to_i)
+    post '/characters' do
+        @plot = Plot.find(session[:plot_id])
         @character = Character.create(name: params["name"], role: params["role"], description: params["description"])
         if @character.valid?
             @plot.characters << @character
             redirect "/characters/#{@character.id}"
         else
             flash[:failure] = "Please try again."
-            redirect "/plots/#{@plot.id}/characters/new"
+            redirect "/characters/new"
         end
     end
 
@@ -46,8 +46,7 @@ class CharactersController < ApplicationController
     # delete
     delete '/characters/:id' do
         @character = Character.find(params[:id])
-        @plot_id = @character.plot.id
         @character.delete
-        redirect "/plots/#{@plot_id}"
+        redirect "/plots/#{session[:plot_id]}"
     end
 end

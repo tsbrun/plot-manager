@@ -26,17 +26,18 @@ class PlotsController < ApplicationController
     end
 
     get '/plots/:id' do
-        @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id
+        @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id)
+        session[:plot_id] = @plot.id
         erb :"plots/show"
     end
 
     get '/plots/:id/edit' do
+        binding.pry
         @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id)
         erb :"plots/edit"
     end
 
     patch '/plots/:id' do
-        binding.pry
         @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id)
         @plot.update(title: params["title"], summary: params["summary"])
         if @plot.valid?
