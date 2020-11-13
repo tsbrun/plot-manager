@@ -1,11 +1,11 @@
 <h1>Welcome to Plot Manager</h1>
 
 <% if flash[:signup_failed] %>
-    <%= flash[:signup_failed] %>
+    <%= flash[:signup_failed] %><br>
 <% elsif flash[:login_failed] %>
-    <%= flash[:login_failed] %>
+    <%= flash[:login_failed] %><br>
 <% elsif flash[:not_logged_in] %>
-    <%= flash[:not_logged_in] %>
+    <%= flash[:not_logged_in] %><br>
 <% end %>
 
 <h2>Please Login Below</h2>
