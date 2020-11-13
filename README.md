@@ -13,3 +13,5 @@ Simple CRUD app to manage plots and characters.
 </ol>
 
 <h2>License</h2>
+
+View the license <a href="plot-manager/LICENSE.md">here</a>.
