@@ -1,3 +1,5 @@
+<div class="container">
+<div class="content">
 <h1>Edit Your Plot</h1>
 
 <form method="POST" action="/plots/<%= @plot.id %>">
@@ -6,7 +8,9 @@
 <input type="text" name="title" value="<%= @plot.title %>"><br><br>
 
 <label for="summary">Summary:</label>
-<textarea name="summary"><%= @plot.summary %></textarea>
+<textarea name="summary"><%= @plot.summary %></textarea><br><br>
 
-<input type="submit" value="Edit">
+<input type="submit" value="Edit" class="button is-success">
 </form>
+</div>
+</div>
