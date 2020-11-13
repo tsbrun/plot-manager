@@ -7,13 +7,13 @@
 <form method="POST" action="/characters/<%= @character.id %>">
 <input id="hidden" type="hidden" name="_method" value="PATCH">
 <label for="name">Name: </label>
-<input type="text" name="user[name]" value="<%= @character.name %>"><br><br>
+<input type="text" name="character[name]" value="<%= @character.name %>"><br><br>
 
 <label for="role">Role: </label>
-<input type="text" name="user[role]" value="<%= @character.role %>"><br><br>
+<input type="text" name="character[role]" value="<%= @character.role %>"><br><br>
 
 <label for="description">Description: </label>
-<input type="text" name="user[description]" value="<%= @character.description %>"><br><br>
+<input type="text" name="character[description]" value="<%= @character.description %>"><br><br>
 
 <input type="submit" value="Edit">
 </form>
