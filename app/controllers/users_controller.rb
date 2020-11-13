@@ -25,9 +25,9 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        binding.pry
-        @user = User.create(name: params["name"], email: params["email"], password: params["password"])
-        if @user.valid? && @user.authenticate(params["password"])
+        #@user = User.create(name: params["name"], email: params["email"], password: params["password"])
+        @user = User.create(params[:user])
+        if @user.valid? && @user.authenticate(params[:user]["password"])
             session[:user_id] = @user.id 
             flash[:login] = "You have successfully logged in as #{current_user(session).name}."
             redirect "/users/#{@user.id}"
