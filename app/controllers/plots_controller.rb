@@ -6,7 +6,6 @@ class PlotsController < ApplicationController
     end
 
     get '/plots/new' do
-        # add this for characters, too
         if logged_in?(session)
             erb :"plots/new"
         else
@@ -33,7 +32,6 @@ class PlotsController < ApplicationController
     end
 
     get '/plots/:id/edit' do
-        binding.pry
         @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id)
         erb :"plots/edit"
     end
