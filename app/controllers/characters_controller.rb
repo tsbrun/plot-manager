@@ -2,8 +2,13 @@ class CharactersController < ApplicationController
 
     # create
     get '/characters/new' do
-        @plot = Plot.find(session[:plot_id])
-        erb :"characters/new"
+        if logged_in?(session)
+            @plot = Plot.find(session[:plot_id])
+            erb :"characters/new"
+        else
+            flash[:not_logged_in] = "Please login to create a new character."
+            redirect "/login"
+        end
     end
 
     post '/characters' do
