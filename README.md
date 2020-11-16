@@ -4,8 +4,6 @@ Simple CRUD app to manage plots and characters.
 Styled with <a href="https://bulma.io/" target="_blank">Bulma</a>.
 
 <img src="./public/images/plot-manager-1.png" alt="index page">
-<img src="./public/images/plot-manager-2.png" alt="login page">
-<img src="./public/images/plot-manager-3.png" alt="signup page">
 
 <h2>Installation</h2>
 
