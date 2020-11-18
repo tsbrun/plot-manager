@@ -25,7 +25,6 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        binding.pry
         @user = User.create(params[:user])
         if @user.valid? && @user.authenticate(params[:user]["password"])
             session[:user_id] = @user.id 
