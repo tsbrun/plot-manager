@@ -25,7 +25,7 @@ class PlotsController < ApplicationController
         end
     end
 
-    get '/plots/:id' do
+    get '/plots/:id' do #one place I could use dynamic url routes
         @plot = Plot.find_by(id: params[:id], user_id: current_user(session).id)
         session[:plot_id] = @plot.id
         erb :"plots/show"
