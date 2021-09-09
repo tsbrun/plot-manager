@@ -1,0 +1,7 @@
+<h1>About</h1>
+
+<% if logged_in?(session) %>
+    <li>Hello, <%= current_user(session).name %>
+<% else %>
+    <p>Please <a href="/login">log in</a> or <a href="/signup">sign up</a>.
+<% end %>
